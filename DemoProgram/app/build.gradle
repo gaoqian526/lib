@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion rootProject.ext.android.compileSdkVersion
+  defaultConfig {
+    applicationId "com.gao.demo.program"
+    minSdkVersion rootProject.ext.android.minSdkVersion
+    targetSdkVersion rootProject.ext.android.targetSdkVersion
+    versionCode rootProject.ext.android.versionCode
+    versionName rootProject.ext.android.versionName
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
+  implementation rootProject.ext.compileDependencies.appcompat_v7
+  implementation rootProject.ext.compileDependencies.cardview_v7
+  implementation rootProject.ext.compileDependencies.recyclerview_v7
+  implementation rootProject.ext.compileDependencies.constraint_layout
+  implementation rootProject.ext.compileDependencies.design
+  implementation rootProject.ext.compileDependencies.support_v4
+  implementation rootProject.ext.compileDependencies.okHttp
+  implementation rootProject.ext.compileDependencies.gson
+  implementation rootProject.ext.compileDependencies.butterknife
+  annotationProcessor rootProject.ext.compileDependencies.butterknife_compiler
+  //  implementation rootProject.ext.compileDependencies.lifecycle_extensions
+  //  implementation rootProject.ext.compileDependencies.lifecycle_viewmodel
+  //
+  //  implementation rootProject.ext.compileDependencies.lifecycle_livedata
+  //  annotationProcessor rootProject.ext.compileDependencies.lifecycle_compiler_annotationProcessor
+  //
+  //  implementation rootProject.ext.compileDependencies.persistence_room
+  //  annotationProcessor rootProject.ext.compileDependencies.persistence_room_annotationProcessor
+  //
+  //  implementation rootProject.ext.compileDependencies.arch_paging
+  //
+  //
+  //  implementation rootProject.ext.compileDependencies.lifecycle_extensions
+  //  implementation rootProject.ext.compileDependencies.lifecycle_extensions
+  implementation files('libs/zip4j_1.3.2.jar')
+  implementation project(':glibrary')
+}
